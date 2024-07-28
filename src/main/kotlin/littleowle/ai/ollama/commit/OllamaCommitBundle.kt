@@ -16,7 +16,7 @@ private const val BUNDLE = "messages.OllamaCommitBundle"
 object OllamaCommitBundle : DynamicBundle(BUNDLE) {
 
     val URL_BUG_REPORT = URI("https://github.com/LittleOwle/littleowle-ai-ollama-commit-plugin-intellij-platform/issues")
-    val URL_PROMPTS_DISCUSSION = URI("https://github.com/LittleOwle/littleowle-ai-ollama-commit-plugin-intellij-platform/discussions/18")
+    val URL_PROMPTS_DISCUSSION = URI("https://github.com/LittleOwle/littleowle-ai-ollama-commit-plugin-intellij-platform/discussions/1")
 
     @Suppress("SpreadOperator")
     @JvmStatic
