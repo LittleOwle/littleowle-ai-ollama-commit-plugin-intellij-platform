@@ -1,0 +1,9 @@
+*
+
+!.gitignore
+
+!libs.versions.toml
+
+!wrapper/
+!wrapper/gradle-wrapper.jar
+!wrapper/gradle-wrapper.properties
