@@ -1,0 +1,62 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>littleowle.ai.ollama.commit</id>
+    <name>Little Owle Ollama AI Commit</name>
+    <vendor>Jamil Services</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>Git4Idea</depends>
+
+    <resource-bundle>messages.OllamaCommitBundle</resource-bundle>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow factoryClass="littleowle.ai.ollama.commit.toolWindow.OllamaCommitToolWindowFactory" id="OllamaCommitToolWindow"/>
+    </extensions>
+
+    <applicationListeners>
+    </applicationListeners>
+    <projectListeners>
+    </projectListeners>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable
+                parentId="tools"
+                instance="littleowle.ai.ollama.commit.settings.AppSettingsConfigurable"
+                key="name"
+        />
+
+        <projectConfigurable
+                parentId="littleowle.ai.ollama.commit.settings.AppSettingsConfigurable"
+                instance="littleowle.ai.ollama.commit.settings.ExclusionsConfigurable"
+                id="littleowle.ai.ollama.commit.settings.ExclusionsConfigurable"
+                key="settings.exclusions.group.title"
+        />
+
+        <notificationGroup
+                id="littleowle.ai.ollama.commit.notification.general"
+                displayType="BALLOON"
+                key="notification.group.general.name"
+        />
+        <notificationGroup
+                id="littleowle.ai.ollama.commit.notification.important"
+                displayType="STICKY_BALLOON"
+                key="notification.group.important.name"
+        />
+        <postStartupActivity
+                implementation="littleowle.ai.ollama.commit.listeners.OllamaCommitApplicationStartupListener"
+        />
+
+    </extensions>
+
+    <actions>
+        <action
+                id="OllamaCommit.Button"
+                text="Little Owle Commit"
+                description="Create commit message with Ollama AI"
+                icon="/icons/littleowle-logo-small.svg"
+                class="littleowle.ai.ollama.commit.OllamaCommitAction">
+
+            <add-to-group group-id="Vcs.MessageActionGroup" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
